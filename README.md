@@ -1,6 +1,6 @@
 <div align="center">
   
-<img width="1237" alt="스크린샷 2022-11-07 오후 4 51 42" src="https://user-images.githubusercontent.com/81874493/200258634-880386eb-46c0-4f4d-b970-ad82a43dc774.png">
+<img width="500" alt="스크린샷 2022-11-07 오후 4 51 42" src="https://user-images.githubusercontent.com/81874493/225831652-6308abd0-e0ce-4723-afc7-2d5a7f07e8a4.jpg">
 
 </div>
 
@@ -12,6 +12,7 @@
 
 ✔️ 오타 및 잘못된 정보는 Mail을 통해 알려주시면 감사하겠습니다.
 
+<br>
 
 ## 📃목차
 
