@@ -17,8 +17,58 @@
 # 📃 목차
 
 
-### ☕️ 자바
-* 객체지향
+### ☕️ 자바 정리본
+<details>
+	<summary>자바 정리본 목차</summary>
+
+- Java 언어
+- 정적언어와 동적 언어
+- Java 버전별 특징
+	
+- JVM의 구조, JVM동작 과정과 JAVA의 실행과정
+- GC (Garbage Collection)
+- 메모리 구조
+
+	<br>
+	
+- 객체지향
+- 클래스와 객체
+- Overriding overloading
+- Interface 와 abstractClass
+- 객체의 Life cycle
+	
+	<br>
+	
+- mutable immutable
+- 래퍼 클래스
+- Object 클래스
+- 자바의 null
+
+	<br>
+	
+- 접근 제한자
+- 자료형 ( 기본 참조 )
+
+	<br>
+
+- Generic
+- wild card
+- Annotation
+
+	<br>
+
+- 직렬화
+- rambda
+- stream
+- exception
+- thread
+
+	<br>
+	
+- String,Stringbuilder,Stringbuffer
+- Collection FrameWork
+</details>
+
 
 
 
