@@ -22,7 +22,7 @@
 	<summary>자바 정리본 목차</summary>
 
 - [Java 언어](https://github.com/JiYongKim-A/MyDatabase/blob/master/Java/1_java.md)
-- 정적언어와 동적 언어
+- [정적 언어와 동적 언어](https://github.com/JiYongKim-A/MyDatabase/blob/master/Java/2_static_dynamic_language.md)
 - Java 버전별 특징
 	
 - JVM의 구조, JVM동작 과정과 JAVA의 실행과정
