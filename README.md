@@ -21,7 +21,7 @@
 <details>
 	<summary>자바 정리본 목차</summary>
 
-- Java 언어
+- [Java 언어](https://github.com/JiYongKim-A/MyDatabase/blob/master/Java/Java.md)
 - 정적언어와 동적 언어
 - Java 버전별 특징
 	
