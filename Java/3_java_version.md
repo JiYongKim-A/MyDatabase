@@ -25,7 +25,8 @@ JRE(Java Runtime Environment)란?
 
  * 구성요소
     
-    (사진 1)
+    <img width="843" alt="스크린샷 2023-03-20 오전 10 13 51" src="https://user-images.githubusercontent.com/81874493/226295523-bd5353d2-4d7e-4eea-9083-fd05223158e3.png">
+
 
       * Class Loader
         * Java 클래스로더는 Java 프로그램의 실행에 필요한 모든 클래스를 동적으로 로드 합니다. Java 클래스는 필요 시에만 메모리에 로드 되므로, JRE는 클래스로더를 사용하여 요청 시에 이 프로세스를 자동화 합니다.
@@ -68,7 +69,8 @@ JDK (Java Development Kit)란?
 
 * 구성요소 
   
-  (사진2)
+  <img width="1095" alt="스크린샷 2023-03-20 오전 11 04 31" src="https://user-images.githubusercontent.com/81874493/226295561-605f636a-f63a-4112-9ea5-d667d861db81.png">
+
   * 구성요소
     * apt :어노테이션 툴
     * appletviewer : 웹브라우저 없이 자바 애플릿을 실행하고 디버깅하기 위한 툴
@@ -102,7 +104,9 @@ JDK (Java Development Kit)란?
 <br>
 
 * JDK 버전 표기
-    (사진3)
+    
+    <img width="705" alt="스크린샷 2023-03-20 오전 11 35 15" src="https://user-images.githubusercontent.com/81874493/226295637-1881070b-a900-4b20-a4d8-95fce3d151ab.png">
+
 
 
 <br>
