@@ -125,7 +125,7 @@ Java는 하위 호환성이 매우 높아 Java 5 또는 8 프로그램이 Java 8
 
 ---
 
-## 4. 자바의 버전별 특징 (7, 8, 11,7) 
+## 4. 자바의 버전별 특징 (7, 8, 11) 
 
 ### Java SE 7
 [대표적 특징]
@@ -207,14 +207,70 @@ Java는 하위 호환성이 매우 높아 Java 5 또는 8 프로그램이 Java 8
     <br>
 
 * Interface Default Methods
+  ```java
+  public interface Repository{
+    // 일반적 인터페이스 메소드 정의
+    public void save(int a);
+
+    // default 메소드를 통해 인터페이스에서 메소드 구현 가능
+    public default void print(int a){
+      System.out.println(a);
+    }
+  }
+
+  //default 메소드가 구현된 인터페이스를 상속 받을 수 있다.
+  public interface MemberRepository extends Repository{ 
+  }
+  ```
   
+  Java SE 8에서는 인터페이스에 디폴트 메소드(Default Methods)라는 것이 추가되어 구현 내용도 인터페이스에 포함시킬 수 있습니다.
+
+  또한, 디폴트 메소드를 구현한 인터페이스를 상속 받을 수 있습니다.
+
+  <br>
+
+* Null 처리 Optional 추가
   
-* 
-* interface default method
-* Optional
-* new Date and Time API(LocalDateTime, …)
+  ```java
+  String a = null;
+  Optional<String> nullable = Optional.ofNullable(a);
+  Boolean result = nullable.orElseThrow(Exception::new).equals("A");
+  ```
+  Java SE 8부터는 Optional이라는 구조체를 제공해서 이전보다 간편하게 NPE(Null Pointer Exception) 이슈에 대응할 수 있습니다.
+
+  <br>
+
+* 날짜와 시간 API
+  * `java.time.Clock`
+  * `java.time.LocalDate`
+  * `java.time.ZoneId`
+   
+    등과 같은 새로운 날짜 API가 추가 되었습니다.
+  
+  <br>
+
+*  Stream API
+    ```java
+    List<String> list = Arrays.asList("java7","java8");
+    list.stream()
+    .filter(s -> s.startWith("j"))
+    .map(String::toUpperCase)
+    .sorted()
+    .forEach(System.out::println);
+    ```
+    Java SE 8부터는 Stream API를 통해 기존 컬렉션 프레임워크를 이용할 때보다 간결하게 코드 작성이 가능합니다.
+
+    또한 병렬처리, 스트림 파이프라인을 통해 하나의 문장으로 다양한 처리 기능을 구현할 수 있습니다.
+  
+  <br>
+
 
 ### Java11
+[대표적 특징]
+Oracle JDK와 OpenJDK가 통합되었으며 Oracle JDK 가 유료 모델로 전환되었습니다.
+
+* 가장 커다란 변화는 바로 라이선스 부분이다. Java SE 11 부터 Oracle JDK 의 독점 기능이 오픈 소스 버전인 OpenJDK 에 이식된다. 이는 다시 말해 Oracle JDK 와 OpenJDK 가 완전히 동일해진다는 뜻이다.
+
 
 ### Java17
 
@@ -225,8 +281,7 @@ Java는 하위 호환성이 매우 높아 Java 5 또는 8 프로그램이 Java 8
 
 ## 5. 정리본
 
-* 프로그래밍 언어(Programming Language)란 무엇인가요
-    * 답변 : 컴퓨터가 이해하는 기계어와 사람이 이해하는 언어 사이의 <U>**중간 매개체 역할**</U>을 하는 언어를 **프로그래밍 언어 (Programming Lagnuage)** 라고 할 수 있습니다.
+* JRE, JDK 자바의 버전별 특징
 
 <br>
 
