@@ -265,8 +265,14 @@ Java는 하위 호환성이 매우 높아 Java 5 또는 8 프로그램이 Java 8
   <br>
 
 * Heap permanent Generation 제거
-  (자바 8 이전 사진)
-  (자바 8 이후 사진)
+  
+  ![캡처1](https://user-images.githubusercontent.com/81874493/226532640-5267524c-3ae1-4440-b68b-23cb1dfa8f79.PNG)
+  (Java SE 8 이전)
+  
+  <br>
+  
+  ![캡처2](https://user-images.githubusercontent.com/81874493/226532675-ddd41b67-8e11-45f1-8a59-98627161f710.PNG)
+  (Java SE 8 이후)
   
   Java 8가 나오면서 JVM 영역에서 변화가 있었다.
   JVM의 여러 메모리 영역 중에
@@ -290,11 +296,17 @@ Java는 하위 호환성이 매우 높아 Java 5 또는 8 프로그램이 Java 8
     * Default로 제한된 크기를 가지고 있지 않다.
     그래서 필요한 만큼 계속 늘어난다.
 
+    <br>
+    
+    ![캡처3](https://user-images.githubusercontent.com/81874493/226532935-a3e76430-61b9-49a2-864a-dae0336f9706.PNG)
+
 
     Perm 영역은 보통 Class의 Meta 정보나 Method의 Meta 정보, Static 변수와 상수 정보들이 저장되는 공간으로 흔히 메타데이터 저장 영역이라고도 한다. 
     
     이 영역은 Java 8 부터는 Native 영역으로 이동하여 Metaspace 영역으로 변경되었다. 
     (다만, 기존 Perm 영역에 존재하던 Static Object는 Heap 영역으로 옮겨져서 GC의 대상이 최대한 될 수 있도록 하였다)
+
+  <br>
 
 ### Java SE 11
 [대표적 특징]
