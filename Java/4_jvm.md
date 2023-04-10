@@ -125,9 +125,27 @@
     * 심볼릭 레퍼런스 (Symbolic Reference)  
 
         기본 자료형을 제외한 모든 타입을 명시적인 메모리 주소 기반의 레퍼런스가 아닌 <U>**심볼릭 레퍼런스**</U>를 통해 참조한다.
-        * Symbolic Reference란?
+        <details>
+        <summary>Symbolic Reference란?</summary>
 
+        자바는 동적 링킹(Dynamic Linking)을 사용하여 실행 가능한 파일을 만들 때 프로그램에서 사용하는 모든 라이브러리 모듈을
+        
+        >복사하지 않고, 해당 모듈의 주소만 가지고 있다가 런타임에 실행 파일과 라이브러리가 메모리에 위치될 때 해당 모듈의 주소로 가서 필요한 것을 들고 오는 방식을 사용합니다. 
 
+        자바가 동적 링킹(Dynamic Linking)을 사용할 수 있는 이유는
         
-            
+        >.class 파일이 실행 가능한 형태가 아닌 JVM이 읽을 수 있는 형태 Java Byte Code 이기 때문입니다. class 파일은 JVM위에서 Linking 작업을 수행할 수 있도록, 라이브러리에 대한 Symbolic Reference만을 가지고 있게 됩니다.
+
+        </details> 
+    <br>
+
+    * Garbage Collection(가비지 컬렉션)
+        * 클래스의 인스턴스는 사용자 코드에 의해 명시적으로 생성되며 더 이상 참조하지 않는다면 GC(Garbage Collector)에 의해 자동으로 메모리를 반환한다.
+
+    * 플랫폼의 독립성 보장
+        * C/C++등의 언어는 플랫폼에 따라 int형의 크기가 변한다
+
+        >JVM은 기본 자료형을 명확히 정의해 호환성을 유지하며 플랫폼의 독립성을 보장한다.
         
+    * 네트워크 바이트 오더(network byte order)
+    
