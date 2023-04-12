@@ -181,7 +181,7 @@
 
 ---
 ## 2. Java의 실행 과정
-<img width="500" alt="">
+<img width="500" alt="https://user-images.githubusercontent.com/81874493/231426896-450f565e-2c12-4f6d-b6d2-ca8b7f9f6138.png">
 
 1. 작성한 자바 소스(java source), 즉 확장자가 .java인 파일을 자바 컴파일러(Java Compiler)를 통해 자바 바이트 코드(Java Byte Code)로 컴파일 한다.
 2. 컴파일된 바이트 코드를 JVM 클래스 로더(Class Loader)에게 전달한다.
@@ -190,6 +190,7 @@
 
 
 <br>
+
 ---
 
 ## 3. JVM의 구조
