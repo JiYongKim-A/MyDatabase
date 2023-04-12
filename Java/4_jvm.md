@@ -269,10 +269,11 @@
 
     <br>
     <br>
+<img width="624" >
 
   - Delegation 원칙
   
-    <img width="500" alt="스크린샷 2023-03-20 오전 11 04 31" src="">
+    <img width="500" alt="스크린샷 2023-04-12 오후 8 25 34" src="https://user-images.githubusercontent.com/81874493/231443630-06f9013f-4cf2-4138-a6d9-88a1e9d70ea0.png">
 
     어떠한 클래스 파일을 로딩할 때, 해당 로딩 요청이 부모 클래스 로더들로 거슬러 올라가 BootstrapClassLoader(최상위 ClassLoader)에 다다른 후 그 밑으로 로딩 요청을 수행
   
