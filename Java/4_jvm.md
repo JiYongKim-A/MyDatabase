@@ -3,11 +3,11 @@
 ## 목차 
 ## 1. [JVM이란](#1-jre-java-runtime-environment)
 
-## 2. [JVM의 구조](#2-jdk-java-development-kit)
+## 2. [Java의 실행과정](#4-자바의-버전별-특징-7-8-11)
 
-## 3. [JVM의 동작과정](#3-자바의-하위-호환성)
+## 3. [JVM의 구조](#2-jdk-java-development-kit)
 
-## 4. [Java의 실행과정](#4-자바의-버전별-특징-7-8-11)
+## 4. [JVM의 동작과정](#3-자바의-하위-호환성)
 
 ## 5. [전체 정리](#5-정리본)
 
@@ -180,6 +180,38 @@
 
 
 ---
+## 2. Java의 실행 과정
+<img width="500" alt="">
 
-## 2. JVM의 구조
+1. 작성한 자바 소스(java source), 즉 확장자가 .java인 파일을 자바 컴파일러(Java Compiler)를 통해 자바 바이트 코드(Java Byte Code)로 컴파일 한다.
+2. 컴파일된 바이트 코드를 JVM 클래스 로더(Class Loader)에게 전달한다.
+3. 클래스 로더는 동적 로딩(Dynamic Loading)을 통해 필요한 클래스들을 로딩 및 링크하여 런타임 데이터 영역(Runtime Data area), 즉 JVM 메모리에 올린다.
+4. 실행 엔진(Execution Egine)은 JVM메모리에 올라온 바이트 코드들을 명령어 단위로 하나씩 가져와 실행한다.
+
+
+<br>
+---
+
+## 3. JVM의 구조
+    
 <img width="500" alt="스크린샷 2023-03-20 오전 11 04 31" src="https://user-images.githubusercontent.com/81874493/231420535-f0aa6561-873c-4404-bd73-d3d10f58bcff.png">
+
+- 클래스 로더
+- 런타임 데이터 영역
+- 실행 엔진
+
+<br>
+
+### 클래스 로더 (Class Loader)
+- 클래스 로더란
+- 클래스 로더의 특징
+  - 계층구조
+  - Delegation 원칙
+  - 가시성 제한
+  - 언로드 불가
+  - 이름 공간
+- 클래스 로딩 과정
+
+<br>
+
+### 런타임 데이터 영역 (Runtime Data Areas)
