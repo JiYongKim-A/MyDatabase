@@ -178,6 +178,8 @@
             
 <br>
 
+
 ---
 
 ## 2. JVM의 구조
+<img width="500" alt="스크린샷 2023-03-20 오전 11 04 31" src="https://user-images.githubusercontent.com/81874493/231420535-f0aa6561-873c-4404-bd73-d3d10f58bcff.png">
