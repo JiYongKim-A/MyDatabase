@@ -481,7 +481,8 @@ JVM은 Java **컴파일러**가 컴파일한 ByteCode를 **ClassLoader**를 �
 
 <br>
 
-<img width="500" alt="스크린샷 2023-04-12 오후 8 25 34" src="">
+
+<img width="500" alt="스크린샷 2023-04-12 오후 8 25 34" src="https://user-images.githubusercontent.com/81874493/231745134-fda0f70a-b7a2-46a6-b134-826d717e3293.png">
 Runtime Data Area는 
 
 * [PC Registers](#pc-register) 
