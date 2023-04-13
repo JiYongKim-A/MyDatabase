@@ -364,15 +364,16 @@
   - 클래스 로딩 과정
   
     <img width="500" alt="스크린샷 2023-04-12 오후 8 25 34" src="https://user-images.githubusercontent.com/81874493/231728302-21daec60-086d-4928-aa02-c75738c6ee71.png">
+    
     소스코드 컴파일 → 클래스 파일 → <U>**클래스 파일을 JVM이 실행 가능한 형태로 메모리에 로드(로딩 과정)**</U> 
     
 
     <br>
 
     위의 로딩 과정은 3가지 단계로 나뉜다
-    * 로딩 (Loading)
-    * 링킹 (Linking)
-    * 초기화 (Initializing)
+    * [로딩 (Loading)](#로딩-loading)
+    * [링킹 (Linking)](#링킹-linking)
+    * [초기화 (Initializing)](#초기화initializing)
 
     <br>    
 
@@ -473,3 +474,107 @@
 <br>
 
 ### 런타임 데이터 영역 (Runtime Data Areas)
+
+JVM은 Java **컴파일러**가 컴파일한 ByteCode를 **ClassLoader**를 이용해 메모리(**RuntimeDataArea**)에 실행 가능한 상태로 적재한다.
+
+⇒ RuntimeDataArea는 JVM이 프로그램을 수행하기 위해 OS로부터 별도로 할당받은 메모리 영역이다.
+
+<br>
+
+<img width="500" alt="스크린샷 2023-04-12 오후 8 25 34" src="">
+Runtime Data Area는 
+
+* [PC Registers](#pc-register) 
+* [JVM Stacks](#jvm-stacks)
+* [Native Method Stacks](#native-method-area)
+
+
+<br>
+
+* [Heap](#heap)
+* [Method Area](#methods-area)
+
+    으로 구성된다
+    
+    <br>
+
+    ⇒ 이 중 <U>**PC Register**</U>, <U>**JVM Stack**</U>,  <U>**Native Method Stack**</U>은 <U>`각 스레드 별로 존재 즉 쓰레드마다 서로 다른 메모리 공간이 할당된다`</U>
+    
+    <br>
+
+    ⇒ <U>**Heap**</U> 과 <U>**Native Method Stacks**</U>은 <U>`각각의 스레드가 모두 공유하여 사용한다.`</U>
+
+<br>
+<br>
+
+### PC Register
+
+- 현재 수행 중인 JVM 명령의 주소
+- Thread가 생성될 때마다 생기는 공간으로 Thread가 어떠한 명령을 실행하게 될지에 대한 부분을 기록
+- JVM은 Stacks-Base 방식으로 작동하는데, JVM은 CPU에 직접 명령을 전달하여 수행하지 않고, Stack에서 Operand(연산을 수행하기 위해 필요한 입력값)를 뽑아내 이를 PC Register에 저장하여 CPU가 명령을 실행하도록 한다 
+
+
+<br>
+<br>
+
+### JVM Stacks
+- 각각 스레드가 시작될 때 생성
+- JVM Stack에는 메서드 호출 시 생성되는 스택 프레임(Stack Frame)이 저장된다.
+  
+  (스택 프레임은 메서드 호출 시에 해당 메서드에서 사용하는 지역 변수, 연산 중에 필요한 값, 메서드 수행 후 반환할 주소 등의 정보를 저장)
+
+- 메서드가 수행될 때마다 하나의 스택 프레임이 생성되어 해당 스레드의 JVM stack에 추가 되고 메소드가 종료되면 스택 프레임이 제거
+    
+- Stack Frame 구성 정보
+  - Local Variable Array
+    -  해당 메서드에서 사용되는 지역 변수들을 저장하는 배열으로 지역 변수는 메서드 내부에서만 사용되며, 다른 메서드에서는 접근할 수 없다
+     
+        Local Variable Array는 메서드 내부에서 선언된 지역 변수들을 저장하며, 인덱스를 이용해 각 변수에 접근할 수 있다.
+
+   <br>
+
+  - Operand Stack
+    -  해당 메서드에서 수행하는 연산에 필요한 피연산자들을 저장하는 스택이다. 
+    
+        연산을 수행할 때, Operand Stack에서 필요한 피연산자를 가져와 연산을 수행하고, 그 결과를 다시 Operand Stack에 저장한다.
+
+  - Constant Pool의 레퍼런스
+    -  해당 메서드에서 사용되는 상수들을 저장하는 Constant Pool의 레퍼런스를 가진다.
+    
+        Constant Pool은 클래스 파일 내부에 저장된 상수들을 담고 있는 테이블로, 해당 메서드에서 사용되는 상수들은 모두 Constant Pool에서 가져와 사용 한다.
+
+
+
+
+<br>
+<br>
+
+### Native Method Stack
+- 자바 외의 언어로 작성된 네이티브 코드를 위한 스택
+- Java Native Interface를 통해 호출하는 C/C++ 코드를 수행하기 위한 스택
+
+<br>
+
+>JVM은 Java 언어로 작성된 메서드를 해석하고 실행하는 데 최적화되어 있지만, native method는 직접 CPU 명령어로 작성되어 있어 JVM에서 해석할 수 없다.
+
+>따라서, JVM은 native method를 호출할 때 native method stack을 생성하고, 해당 스택에서 native method를 실행 한다.
+
+<br>
+
+- Native Method란
+  - Java 언어는 자체적으로 파일 입출력, 그래픽 처리, 수학 연산 등을 지원하기는 하지만, 이들 기능을 더욱 효율적으로 처리하기 위해 C, C++, Assembly 등으로 작성된 함수를 사용하기도 한다.
+  
+    이러한 함수를 native method라고 한다.
+
+
+<br>
+<br>
+
+### Heap
+
+
+
+<br>
+<br>
+
+### Native Method Area
