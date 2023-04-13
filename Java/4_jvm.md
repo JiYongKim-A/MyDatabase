@@ -1,11 +1,11 @@
 # JVM의 구조, JVM동작 과정과 JAVA의 실행과정
 
 ## 목차 
-## 1. [JVM이란](#1-jre-java-runtime-environment)
+## 1. [JVM이란](#1-jvmjava-virtual-machine이란)
 
-## 2. [Java의 실행과정](#4-자바의-버전별-특징-7-8-11)
+## 2. [Java의 실행과정](#2-java의-실행-과정)
 
-## 3. [JVM의 구조](#2-jdk-java-development-kit)
+## 3. [JVM의 구조](#3-jvmec9d98-eab5aceca1b0-1)
 
 ## 4. [JVM의 동작과정](#3-자바의-하위-호환성)
 
@@ -208,7 +208,7 @@
 <img width="500" alt="스크린샷 2023-03-20 오전 11 04 31" src="https://user-images.githubusercontent.com/81874493/231420535-f0aa6561-873c-4404-bd73-d3d10f58bcff.png">
 
 - [클래스 로더](#클래스-로더-class-loader)
-- [런타임 데이터 영역]()
+- [런타임 데이터 영역](#런타임-데이터-영역-runtime-data-areas)
 - 실행 엔진
 
 <br>
@@ -362,7 +362,114 @@
   <br>
 
   - 클래스 로딩 과정
+  
+    <img width="500" alt="스크린샷 2023-04-12 오후 8 25 34" src="">
+    소스코드 컴파일 → 클래스 파일 → <U>**클래스 파일을 JVM이 실행 가능한 형태로 메모리에 로드(로딩 과정)**</U> 
+    
 
+    <br>
+
+    위의 로딩 과정은 3가지 단계로 나뉜다
+    * 로딩 (Loading)
+    * 링킹 (Linking)
+    * 초기화 (Initializing)
+
+    <br>    
+
+    ### 로딩 (Loading)
+    .class 파일을 읽어 내용에 따라 적절한 바이너리 데이터를 생성하고, 메서드 영역에 저장
+      - 메서드 영역: 추후에 jvm의 구성 중, 데이터 영역에서 다룰 내용으로 자세한 설명은 생략  Type정보(class, interface, enum) Method, 변수, FQCN(클래스가 속한 패키지명을 모두 포함한 이름)이 저장되는 영역
+    
+    <br>
+    
+    앞에서 설명한, ClassLoader의 <U>**계층구조 및 Delegation원칙에 따라서 Root ClassLoader에서부터 load가 필요한 class를 찾는다**</U>
+
+     로딩이 끝나면, Type 정보로 저장된 Class Type Object를 생성하여 Heap 영역에 저장
+
+    <details>
+        
+      <summary> 클래스 로드 타임(Class Load Time) </summary>
+      
+      <br>
+
+      ClassLoader에서 <U>**Class를 Load 하는 시점**</U>에 따라
+      * Load-Time Dynamic Loading 
+      * Run-Time Dynamic Loading
+      
+        으로 구분된다
+
+      <br>
+
+      * Load-Time Dynamic Loading
+        * 하나의 Class를 Loading 하는 과정에서 이와 관련된 Class들을 한꺼번에 Loading 한다. 
+        
+        ```java
+        public class Test { 
+          public static void main(String[] args) { 
+            System.out.println("hi");  
+          }  
+        }
+        ```
+
+        Test라는 Class에서 String객체를 Parameter로 사용하고 있으며 System객체를 호출하고 있다 이 경우 Hello Class가 ClassLoader에 의해 JVM내로 Loading 될 때 `java.lang.String Class`와 `java.lang.System Class`가 동시에 Loading이 이루어진다.
+
+      <br>
+      <br>    
+
+      * Run-Time Dynamic Loading
+
+        ```java
+        public class Test { 
+          public static void main(String[] args) { 
+            System.out.println("hi");  
+          }  
+        }
+        ```
+        객체를 참조하는 순간에 동적으로 Loading 하는 방식이다
+
+        `Class.forName()`이 실행되기 전까지는 Hello클래스에서 어떤 클래스를 참조하는지 알 수 없다
+
+        Hello클래스의 main() 메서드가 실행되고 `Class.forName(args[0])`을 호출하는 순간에 args [0]에 해당하는 클래스를 읽어온다
+
+        즉, 클래스를 로딩할 때가 아닌 코드를 실행하는 순간에 클래스를 로딩하는 것.
+      
+      
+
+    </details>
+
+
+    <br>
+    <br>    
+
+    ### 링킹 (Linking)
+    로딩 단계로부터 생성된 실행될 수 있는 클래스와 리소스를 JVM의 런타임 데이터로 합치는 과정
+    - Verifying
+      - .class 파일의 정확성을 보장하기 위한 단계
+      - 파일이 적절한 포맷인지, 유효한 컴파일러에 의해 생성되었는지를 확인
+      - 검증이 실패한 경우 런타임 에러 (java.lang.VerifyError) 발생
+    
+    <br>
+
+    - Preparing
+      - Prepare 단계에서는 클래스 변수(static 변수)가 JVM의 메모리에 할당된다.
+      - 이 단계에서는 클래스 변수가 사용될 메모리 공간이 할당되고, 변수의 기본값이 설정되며 기본값에 필요한 메모리를 준비하는 과정
+    
+    <br>
+    
+    - Resolving
+      - 심볼릭 메모리 레퍼런스를 메모리 영역에 존재하는 실제 레퍼런스로 교체
+      - optional 한 단계 (설정에 따라서 동작 유무가 정해진다.)
+
+    <br>
+    <br>    
+
+    ### 초기화(Initializing)
+    - 객체의 필드 값을 초기화하고, 생성자를 호출하여 객체를 초기화하는 작업이 이루어 진다.
+    - 윗 단계인 Linking의 Preparing 단계에서 확보한 메모리 영역에 static 값을 할당
+    - 필드의 초기값이 명시되지 않으면, JVM은 해당 필드 타입에 맞게 기본값을 할당
+
+
+<br>
 <br>
 
 ### 런타임 데이터 영역 (Runtime Data Areas)
