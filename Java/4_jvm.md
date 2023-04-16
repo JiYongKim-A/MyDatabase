@@ -5,9 +5,9 @@
 
 ## 2. [Java의 실행과정](#2-java의-실행-과정)
 
-## 3. [JVM의 구조](#3-jvmec9d98-eab5aceca1b0-1)
+## 3. [JVM의 구조](#3jvm의-구조)
 
-## 4. [JVM의 동작과정](#3-자바의-하위-호환성)
+## 4. [JVM의 동작과정](#4jvm의-동작과정)
 
 
 
@@ -203,7 +203,7 @@
 
 ---
 
-## 3. JVM의 구조
+## 3.JVM의 구조
     
 <img width="500" alt="스크린샷 2023-03-20 오전 11 04 31" src="https://user-images.githubusercontent.com/81874493/231420535-f0aa6561-873c-4404-bd73-d3d10f58bcff.png">
 
@@ -727,7 +727,7 @@ Runtime Data Area는
 ---
 
 
-## 4. JVM의 동작과정
+## 4.JVM의 동작과정
 <img width="500" alt="스크린샷 2023-04-12 오후 8 25 34" src="https://user-images.githubusercontent.com/81874493/232293732-d1fcc8b8-4829-4ede-bfaa-7fd8811a0f41.png">
 
 1. **작성한 자바 소스(.java)를 자바 컴파일러를 통해 자바 바이트 코드(.class)로 컴파일 한다.**
@@ -757,4 +757,13 @@ Runtime Data Area는
 
     - JIT 컴파일러(Just-In-Time Compiler) : 인터프리터의 단점을 보완하기 위해 도입된 방식으로 바이트 코드 전체를 컴파일하여 바이너리 코드로 변경하고 이후에는 해당 메서드를 더이상 인터프리팅 하지 않고, 바이너리 코드로 직접 실행하는 방식이다.
     
-       하나씩 인터프리팅하여 실행하는 것이 아니라 바이트 코드 전체가 컴파일된 바이너리 코드를 실행하는 것이기 때문에 전체적인 실행속도는 인터프리팅 방식보다 빠다.
+       하나씩 인터프리팅하여 실행하는 것이 아니라 바이트 코드 전체가 컴파일된 바이너리 코드를 실행하는 것이기 때문에 전체적인 실행속도는 인터프리팅 방식보다 빠르다.
+
+<br>
+
+# 참고
+[https://jeong-pro.tistory.com/148](https://jeong-pro.tistory.com/148) JVM참고
+
+[https://steady-coding.tistory.com/305](https://steady-coding.tistory.com/305)  JVM참고
+
+[https://steady-snail.tistory.com/67](https://steady-snail.tistory.com/67) JVM참고
