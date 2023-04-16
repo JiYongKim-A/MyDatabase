@@ -25,7 +25,7 @@
 - [정적 언어와 동적 언어](https://github.com/JiYongKim-A/MyDatabase/blob/master/Java/2_static_dynamic_language.md)
 - [Java 버전별 특징](https://github.com/JiYongKim-A/MyDatabase/blob/master/Java/3_java_version.md)
 	
-- JVM의 구조, JVM동작 과정과 JAVA의 실행과정
+- [JVM의 구조, JVM동작 과정과 JAVA의 실행과정](https://github.com/JiYongKim-A/MyDatabase/blob/master/Java/4_jvm.md)
 - GC (Garbage Collection)
 - 메모리 구조
 
