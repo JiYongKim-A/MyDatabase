@@ -583,7 +583,7 @@ Runtime Data Area는
 
   <Oracle의 Hotspot JVM Heap구조>
 
-  <img width="500" alt="스크린샷 2023-04-12 오후 8 25 34" src="">
+  <img width="500" alt="스크린샷 2023-04-12 오후 8 25 34" src="https://user-images.githubusercontent.com/81874493/232293484-12f2b8e4-cd4f-4990-a176-555edf539b89.png">
 
   GC가 발생하는 영역이며, 참조(레퍼런스)가 없는 객체들은 GC과정을 통해 메모리에서 제거된다.
 
@@ -650,7 +650,7 @@ Runtime Data Area는
 
   ### Method Area
 
-  <img width="500" alt="스크린샷 2023-04-12 오후 8 25 34" src="">
+  <img width="500" alt="스크린샷 2023-04-12 오후 8 25 34" src="https://user-images.githubusercontent.com/81874493/232293576-67834439-325d-4dd0-b5eb-e34f502151cb.png">
 
   프로그램 실행 중 클래스가 사용되면 JVM은 해당 클래스 파일을 읽어서 분석하여 클래스의 인스턴스 변수, 메서드 코드 등을 Method Area에 저장한다
 
@@ -726,8 +726,9 @@ Runtime Data Area는
 
 ---
 
+
 ## 4. JVM의 동작과정
-<img width="500" alt="스크린샷 2023-04-12 오후 8 25 34" src="">
+<img width="500" alt="스크린샷 2023-04-12 오후 8 25 34" src="https://user-images.githubusercontent.com/81874493/232293732-d1fcc8b8-4829-4ede-bfaa-7fd8811a0f41.png">
 
 1. **작성한 자바 소스(.java)를 자바 컴파일러를 통해 자바 바이트 코드(.class)로 컴파일 한다.**
     - 자바 바이트 코드 : JVM이 이해할 수 있는 코드로 아직 컴퓨터는 읽을 수 없는 반기계어 이다. 자바 바이트 코드의 각 명령어는 1바이트 크기의 Opcode와 추가 피연산자로 이루어져 있다.
