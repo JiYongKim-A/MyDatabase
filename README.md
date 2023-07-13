@@ -27,15 +27,11 @@
 	
 - [JVM의 구조, JVM동작 과정과 JAVA의 실행과정](https://github.com/JiYongKim-A/MyDatabase/blob/master/Java/4_jvm.md)
 - GC (Garbage Collection)
-- 메모리 구조
 
 	<br>
 	
-- 객체지향
-- 클래스와 객체
 - Overriding overloading
 - Interface 와 abstractClass
-- 객체의 Life cycle
 	
 	<br>
 	
@@ -63,10 +59,7 @@
 - exception
 - thread
 
-	<br>
-	
-- String,Stringbuilder,Stringbuffer
-- Collection FrameWork
+
 </details>
 
 
