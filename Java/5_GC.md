@@ -159,7 +159,7 @@ GC는 Weak Generational Hypothesis 에 기반한다.
 
     Minor GC가 발생하면 Eden과 Survivor0에 살아있는 객체를 Survivor1로 복사한다.
     그리고 Survivor0과 Eden을 Clear한다.
-    결과적으로 한번의 Minor GC에서 살아남은 객체만 Survivor2영역에 남는다.
+    결과적으로 한번의 Minor GC에서 살아남은 객체만 Survivor1영역에 남는다.
     
     >  그리고 다음번 Minor GC가 발생하면 같은 방식으로 Eden과  Survivor1영역에서 살아있는 객체를 Survivor0로 복사하고 클리어한다. 결과적으로 Survivor0에만 살아있는 객체가 남게된다.
     
@@ -366,21 +366,22 @@ Major GC가 일어나면 Thread가 멈추고 Mark and Sweep 작업을 해야 해
 <br>
 
 * Yong 영역의 eden 영역과 survivor영역에 대해 설명해 주세요
-    * 답변 :  
+    * 답변 : eden영역은 새로 생성된 객체가 할당되는 영역이며 이곳에서 minor GC가 일어나면 아직 사용중인 객체는 Survivor 영역으로 이동하고 Eden 영역은 비워지게 됩니다.
 
 <br>
 
 * Old 영역에 대해 설명해 주세요
-    * 답변 :  
+    * 답변 : Old 영역은 Yong 영역에서 Minor GC가 이루어진 후에 아직 사용중인 객체가 옮겨지는 곳으로 대부분 Young 영역보다 크게 할당하며, 크기가 큰 만큼 Young 영역보다 GC는 적게 발생하는 영역 입니다.
 
 <br>
 
 * Minor GC가 무엇인지 설명해 주세요
-    * 답변 :  
+    * 답변 : Minor GC란 Young Generation 영역은 짧게 살아남는 객체들이 존재하는 공간으로 모든 객체는 처음에는 Young Generation에 생성되게 됩니다 이때 Young Generation 영역의 Eden 영역이 꽉 찬경우 발생되는 GC를 Minor GC라 부릅니다.
+
 
 <br>
 
 * Major GC가 무엇인지 설명해 주세요
-    * 답변 :  
+    * 답변 : Major GC란 Old Generation영역은 상대적으로 Yong 영역보다 오래 살아남은 객체들이 존재하는 곳으로 Old영역의 데이터가 가득 찬 경우 발생되는 GC를 Major GC라 부릅니다.
 
 <br>
