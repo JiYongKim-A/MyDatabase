@@ -95,7 +95,8 @@ GC는 Weak Generational Hypothesis 에 기반한다.
 
 1. Marking
 
-    <img width="1095" alt="marking 이미지" src="">
+    <img width="1095" alt="marking 이미지" src="https://github.com/JiYongKim-A/MyDatabase/assets/81874493/78fd3d35-0172-4fa4-92ce-4c3be999aac8">
+
 
     * 프로세스는 마킹을 호출하고 GC가 메모리가 사용되는지 아닌지를 찾아낸다.
     * 참조되는 객체는 파란색으로, 참조되지 않는 객체는 주황색으로 확인 가능
@@ -106,7 +107,8 @@ GC는 Weak Generational Hypothesis 에 기반한다.
 
 2. Normal Delection (Sweep)
 
-    <img width="1095" alt="Normal Delection 이미지" src="">
+    <img width="1095" alt="Normal Delection 이미지" src="https://github.com/JiYongKim-A/MyDatabase/assets/81874493/e2eae65f-5b97-452a-9f24-345d64a93337">
+
 
     * 참조되지 않는 객체를 제거하고, 메모리를 반환한다.
     * 메모리 Allocator는 반환되어 비어진 블럭의 참조 위치를 저장해 두고 새로운 오브젝트가 선언되면 할당되도록 한다.
@@ -115,7 +117,7 @@ GC는 Weak Generational Hypothesis 에 기반한다.
 
 3. Compacting (Defragmentation : 조각 모음)
 
-    <img width="1095" alt="Compacting 이미지" src="">
+    <img width="1095" alt="Compacting 이미지" src="https://github.com/JiYongKim-A/MyDatabase/assets/81874493/1fa052cb-0bd3-4086-aed5-4c08938ab914">
 
     * 퍼포먼스를 향상시키기 위해, 참조되지 않는 객체를 제거하고 남은 참조되어지는 객체들을 묶는다.
     *  이들을 묶음으로서 공간이 생기므로 새로운 메모리 할당 시에 더 쉽고 빠르게 진행 할 수 있다.
@@ -125,7 +127,7 @@ GC는 Weak Generational Hypothesis 에 기반한다.
 
 ## 4. GC관점 Heap 메모리 영역
 
-<img width="1095" alt="GC관점 heap 메모리 영역 이미지" src="">
+<img width="1095" alt="GC관점 heap 메모리 영역 이미지" src="https://github.com/JiYongKim-A/MyDatabase/assets/81874493/8a00d477-1192-4dcc-93d2-c5f7a6d8069c">
 
 - Young 영역( Yong Generation 영역 )
     
@@ -217,7 +219,7 @@ GC는 Weak Generational Hypothesis 에 기반한다.
 
 [Minor GC의 동작 과정]
 
-<img width="1095" alt="minor gc" src="">
+<img width="1095" alt="minor gc" src="https://github.com/JiYongKim-A/MyDatabase/assets/81874493/58d2d2a9-a057-4764-9a19-05ab7448f12c">
 - Young Generation 영역은 짧게 살아남는 메모리들이 존재하는 공간이다.
 
 - 모든 객체는 처음에는 Young Generation에 생성되게 된다.
@@ -230,17 +232,17 @@ GC는 Weak Generational Hypothesis 에 기반한다.
 <br>
 
 1. 어떠한 새로운 객체가 생성되면 Eden Space에 할당된다.
-    <img width="1095" alt="GC의 동작 과정1" src="">
+    <img width="1095" alt="GC의 동작 과정1" src="https://github.com/JiYongKim-A/MyDatabase/assets/81874493/2d7beac4-6619-4d95-9d12-d400dad86271">
 
 <br>
 
 2. Eden Space가 가득차게 되면, minor garbage Collection이 시작된다.
-    <img width="1095" alt="GC의 동작 과정2" src="">
+    <img width="1095" alt="GC의 동작 과정2" src="https://github.com/JiYongKim-A/MyDatabase/assets/81874493/35b7e741-a9fc-443e-96c0-7897ce673f39">
 
 <br>
 
 3. 참조되는 객체들은 첫 번째 survivor(S0)로 이동되어지고, 비 참조 객체는 Eden space가 clear 될 때 반환된다.
-    <img width="1095" alt="GC의 동작 과정3" src="">
+    <img width="1095" alt="GC의 동작 과정3" src="https://github.com/JiYongKim-A/MyDatabase/assets/81874493/ae000516-6fac-4885-bc75-7c09dd0699e4">
 
 <br>
 
@@ -254,24 +256,24 @@ GC는 Weak Generational Hypothesis 에 기반한다.
     
     >한번 모든 surviving 객체들이 S1으로 이동하게 되면 S0와 Eden 공간은 Clear 된다. 
     
-    <img width="1095" alt="GC의 동작 과정4" src="">
+    <img width="1095" alt="GC의 동작 과정4" src="https://github.com/JiYongKim-A/MyDatabase/assets/81874493/951da4f9-0564-4d44-b38d-a77d81cd70c7">
 
 <br>
 
 5. 다음 minor GC 때, 같은 과정이 반복 된다. 하지만 이번엔 survivor space들은 switch 된다. 참조되는 객체들은 S0로 이동하고 살아남은 객체들은 aged된다.
 
     그리고 Eden과 S1 공간은 Clear 된다.
-    <img width="1095" alt="GC의 동작 과정5" src="">
+    <img width="1095" alt="GC의 동작 과정5" src="https://github.com/JiYongKim-A/MyDatabase/assets/81874493/0dd875f6-7fe5-4a8f-b6af-d31d82685032">
 
 <br>
 
 6. 아래 그램은 promotion을 보여준다. minor GC 후 aged 오브젝트들이 일정한 age threshold(문지방)을 넘게 되면 그것들은 young generation에서 old generation으로 promotion 되어 진다. 
-    <img width="1095" alt="GC의 동작 과정6" src="">
+    <img width="1095" alt="GC의 동작 과정6" src="https://github.com/JiYongKim-A/MyDatabase/assets/81874493/eb737e2b-ed5e-43c8-8cb1-10dc0665ca93">
 
 <br>
 
 7. minor GC가 계속되고 계속해서 객체들이 Old Generation으로 이동된다.
-    <img width="1095" alt="GC의 동작 과정7" src="">
+    <img width="1095" alt="GC의 동작 과정7" src="https://github.com/JiYongKim-A/MyDatabase/assets/81874493/573c323e-b027-40ac-804d-0654283648f9">
 
 <br>
 
@@ -279,7 +281,7 @@ GC는 Weak Generational Hypothesis 에 기반한다.
 
 [Major GC]
 
-<img width="1095" alt="major gc" src="">
+<img width="1095" alt="major gc" src="https://github.com/JiYongKim-A/MyDatabase/assets/81874493/3b7396d7-f8f7-441a-a396-87f692cb7d7d">
 
 - Old Generation은 길게 살아남는 메모리들이 존재하는 공간이다.
 
@@ -294,19 +296,19 @@ GC는 Weak Generational Hypothesis 에 기반한다.
 
 1. 객체의 age가 임계값(여기선 8로 설정)에 도달할 시
 
-    <img width="1095" alt="major gc1" src="">
+    <img width="1095" alt="major gc1" src="https://github.com/JiYongKim-A/MyDatabase/assets/81874493/1a2d2974-d09e-432e-8ab0-ec85200f37bf">
 
 <br>
 
 2.  이 객체들은 Old Generation 으로 이동되며 이를 promotion 이라 부른다.
 
-    <img width="1095" alt="major gc2" src="">
+    <img width="1095" alt="major gc2" src="https://github.com/JiYongKim-A/MyDatabase/assets/81874493/5043465f-3862-4b24-8303-dfb200b26e21">
 
 <br>
 
 3. 위의 과정이 반복되어 Old Generation 영역의 공간(메모리)가 부족하게 되면 Major GC가 발생되게 된다.
 
-    <img width="1095" alt="major gc3" src="">
+    <img width="1095" alt="major gc3" src="https://github.com/JiYongKim-A/MyDatabase/assets/81874493/a1e2ec8b-018e-49f4-a091-91abaddab87b">
 
 <br>
 
